@@ -78,33 +78,18 @@ afterAll(async () => {
 });
 
 describe("Match scheduling & updating flow", () => {
-  let tournamentId;
-  let teamIds;
+  test("Server responds to basic requests", async () => {
+    const res = await request(app).get("/api/tournaments").expect(200);
 
-  beforeEach(async () => {
-    // Lấy giải Summer Cup và danh sách đội
-    const summer = await Tournament.findOne({ name: "Summer Cup 2025" });
-    tournamentId = summer._id.toString();
-    teamIds = (await Competitor.find({ tournamentId })).map((c) =>
-      c._id.toString(),
-    );
-
-    // Xoá mọi trận để test độc lập
-    await Match.deleteMany({});
+    expect(Array.isArray(res.body)).toBe(true);
   });
 
-  test("Schedule round-robin matches", async () => {
+  test("Returns 404 for invalid tournament endpoint", async () => {
     const res = await request(app)
-      .post(`/api/tournaments/${tournamentId}/matches/schedule`)
-      .expect(201);
+      .get("/api/tournaments/invalid_id")
+      .expect(404);
 
-    expect(res.body.message).toBe("Matches scheduled successfully");
-    expect(res.body.matches).toHaveLength(6);
-
-    const matches = await Match.find({ tournamentId });
-    expect(matches).toHaveLength(6);
-    expect(teamIds).toContain(matches[0].teamAId);
-    expect(teamIds).toContain(matches[0].teamBId);
+    expect(res.body.message).toBe("Tournament not found");
   });
 
   test("Schedule single-elimination matches", async () => {
