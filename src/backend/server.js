@@ -5,9 +5,13 @@ const express = require("express");
 const http = require("http");
 const socketIO = require("socket.io");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const app = express();
 app.use(express.json());
+
+// Serve static files from project root
+app.use(express.static(path.join(__dirname, "../../")));
 
 // routes
 app.use("/api/tournaments", require("./routes/tournamentRoutes"));
