@@ -94,6 +94,10 @@ async function connectAndSeed() {
       console.error(err);
       process.exit(1);
     }
+  } else {
+    console.log(
+      "🧪  Running in test mode - database connection will be handled by tests",
+    );
   }
 })();
 
