@@ -1,0 +1,63 @@
+/tournament-app
+├── index.html            # Trang chính 
+├── /src
+│   ├── /assets           # Tài nguyên tĩnh
+│   │   └── /styles
+│   │   │       ├── base.css             # Reset, fonts, root variables (chung toàn hệ thống)
+│   │   │       ├── layout.css           # Flex/grid layout, container, spacing
+│   │   │       ├── components.css       # Button, input, card, modal, etc.
+│   │   │       ├── theme.css            # Dark/light theme (nếu có)
+│   │   │       ├── guest.css            # Giao diện dành riêng cho guest
+│   │   │       ├── user.css             # Giao diện dành riêng cho user
+│   │   │       ├── organizer.css        # Organizer dashboard
+│   │   │       ├── admin.css            # Admin panel
+│   │   │       └── responsive.css       # Media queries chung (nếu có)
+│   │   └── /image                   #chứa ảnh                
+│   ├── /frontend
+│   │   ├── /js
+│   │   │   ├── /models       # Dữ liệu và logic nghiệp vụ
+│   │   │   │   ├── User.js
+│   │   │   │   ├── Organizer.js
+│   │   │   │   ├── Tournament.js
+│   │   │   │   └── Team.js
+│   │   │   ├── /views        # Giao diện
+│   │   │   │   ├── userView.js
+│   │   │   │   ├── organizerView.js
+│   │   │   │   └── adminView.js
+│   │   │   │   └── guestView.js
+│   │   │   ├── /controllers  # Logic điều khiển
+│   │   │   │   ├── UserController.js
+│   │   │   │   ├── OrganizerController.js
+│   │   │   │   └── AdminController.js
+│   │   │   │   └── GuestController.js
+│   │   │   ├── api.js        # Tương tác với backend
+│   │   │   ├── lang.js       # Logic xử lý ngôn ngữ
+│   │   ├── /lang            # File ngôn ngữ
+│   │   │   ├── en.json
+│   │   │   └── vi.json
+│   │   └── login.html
+│   ├── /backend           # Toàn bộ backend trong một thư mục
+│   │   ├── server.js      # Server chính
+│   │   ├── package.json   # Cấu hình backend
+│   │   ├── /data          # Dữ liệu tĩnh
+│   │   │   ├── users.json
+│   │   │   ├── tournaments.json
+│   │   │   └── teams.json
+│   │   ├── /config        # Cấu hình server
+│   │   │   └── config.js
+│   │   ├── /controllers   # Logic điều khiển backend
+│   │   │   ├── UserController.js
+│   │   │   ├── OrganizerController.js
+│   │   │   └── AdminController.js
+│   │   ├── /models        # Mô hình dữ liệu backend
+│   │   │   ├── User.js
+│   │   │   ├── Organizer.js
+│   │   │   ├── Tournament.js
+│   │   │   └── Team.js
+│   │   ├── /routes        # Định nghĩa API routes
+│   │   │   ├── userRoutes.js
+│   │   │   ├── organizerRoutes.js
+│   │   │   └── adminRoutes.js
+│   │   └── /utils         # Các hàm tiện ích
+│   │       └── fileUtils.js
+└── README.md

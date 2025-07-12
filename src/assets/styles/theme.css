@@ -1,0 +1,27 @@
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+body.dark-mode .guest-header {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode .guest-nav input,
+body.dark-mode .guest-nav button,
+body.dark-mode .guest-nav select,
+body.dark-mode .login-section input {
+  background-color: #333;
+  color: #fff;
+  border-color: #888;
+}
+
+body.dark-mode .btn {
+  background-color: #555;
+  color: #fff;
+}
+
+body.dark-mode .btn:hover {
+  background-color: #888;
+}

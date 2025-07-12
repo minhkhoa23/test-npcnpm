@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <div id="loginContainer">
+        <h2 id="loginTitle">Login</h2>
+        <input type="text" id="email" placeholder="Email">
+        <button onclick="window.location.href='../index.html'; userController.login(document.getElementById('email').value)">Login</button>
+        <p id="registerLink">Don't have an account? <a href="../index.html">Register</a></p>
+    </div>
+    <script src="./js/api.js"></script>
+    <script src="./js/models/User.js"></script>
+    <script src="./js/controllers/UserController.js"></script>
+    <script src="./js/lang.js"></script>
+</body>
+</html>
