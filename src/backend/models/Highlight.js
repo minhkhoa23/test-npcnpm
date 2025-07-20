@@ -26,6 +26,11 @@ const highlightSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
+  status: {
+    type: String,
+    enum: ['private', 'public'],
+    default: 'public'
+  },
   createdAt: {
     type: Date,
     default: Date.now

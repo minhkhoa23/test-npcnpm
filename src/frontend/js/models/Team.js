@@ -1,9 +1,14 @@
 class Team {
-    constructor(id, name, logo, members) {
-        this.id = id;
+    constructor({
+        _id,
+        name,
+        logoUrl = '',
+        tournamentId = null
+    } = {}) {
+        this._id = _id;
         this.name = name;
-        this.logo = logo;
-        this.members = members || [];
+        this.logoUrl = logoUrl;
+        this.tournamentId = tournamentId;
     }
 }
 
