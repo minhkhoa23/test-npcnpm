@@ -19,7 +19,7 @@
 │   │   │   │   ├── User.js
 │   │   │   │   ├── Organizer.js
 │   │   │   │   ├── Tournament.js
-│   │   │   │   └── Team.js
+│   │   │   │   └── Competitor.js
 │   │   │   ├── /views        # Giao diện
 │   │   │   │   ├── userView.js
 │   │   │   │   ├── organizerView.js
@@ -42,7 +42,7 @@
 │   │   ├── /data          # Dữ liệu tĩnh
 │   │   │   ├── users.json
 │   │   │   ├── tournaments.json
-│   │   │   └── teams.json
+│   │   │   └── competitors.json
 │   │   ├── /config        # Cấu hình server
 │   │   │   └── config.js
 │   │   ├── /controllers   # Logic điều khiển backend
@@ -53,7 +53,7 @@
 │   │   │   ├── User.js
 │   │   │   ├── Organizer.js
 │   │   │   ├── Tournament.js
-│   │   │   └── Team.js
+│   │   │   └── Competitor.js
 │   │   ├── /routes        # Định nghĩa API routes
 │   │   │   ├── userRoutes.js
 │   │   │   ├── organizerRoutes.js
@@ -61,3 +61,4 @@
 │   │   └── /utils         # Các hàm tiện ích
 │   │       └── fileUtils.js
 └── README.md
+
