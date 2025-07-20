@@ -27,6 +27,11 @@ const newsSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
+  status: {
+    type: String,
+    enum: ['private', 'public'],
+    default: 'public'
+  },
   publishedAt: {
     type: Date
   }

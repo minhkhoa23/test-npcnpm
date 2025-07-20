@@ -6,6 +6,7 @@
     "title": "Highlight trận khai mạc",
     "videoUrl": "https://www.youtube.com/watch?v=vid1",
     "description": "Pha kết liễu mãn nhãn",
+    "status": "public",
     "createdAt": "2025-03-01T20:00:00Z"
   },
   {
@@ -15,6 +16,7 @@
     "title": "Highlight bán kết Summer",
     "videoUrl": "https://www.youtube.com/watch?v=vid2",
     "description": "Pha solo cực căng",
+    "status": "public",
     "createdAt": "2025-06-20T18:00:00Z"
   }
 ]

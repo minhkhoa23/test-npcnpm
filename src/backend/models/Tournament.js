@@ -9,7 +9,9 @@ const tournamentSchema = new mongoose.Schema({
   organizerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },  // removed required to allow seeding
   teams:       [{ type: mongoose.Schema.Types.ObjectId, ref: 'Competitor', default: [] }],
   avatarUrl:   { type: String },
-  sponsors:    [{ name: String, logoUrl: String }],
+  gameName:    { type: String },
+  numberOfPlayers: { type: Number },
+  maxPlayers:  { type: Number },
   startDate:   { type: Date },
   endDate:     { type: Date },
   status:      { type: String }, // upcoming│ongoing│completed

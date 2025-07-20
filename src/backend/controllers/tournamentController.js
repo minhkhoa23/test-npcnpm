@@ -1,4 +1,5 @@
 const Tournament = require('../models/Tournament');
+const mongoose = require('mongoose');
 
 exports.list = async (req, res) => {
   const tournaments = await Tournament.find().populate('teams');
@@ -16,6 +17,10 @@ exports.create = async (req, res) => {
 
 exports.get = async (req, res) => {
   try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(404).json({ message: 'Tournament not found' });
+    }
+
     const tournament = await Tournament.findById(req.params.id).populate('teams');
     if (!tournament) return res.status(404).json({ message: 'Tournament not found' });
     res.json(tournament);
@@ -26,6 +31,10 @@ exports.get = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(404).json({ message: 'Tournament not found' });
+    }
+
     const tournament = await Tournament.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true
@@ -39,6 +48,10 @@ exports.update = async (req, res) => {
 
 exports.remove = async (req, res) => {
   try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(404).json({ message: 'Tournament not found' });
+    }
+
     const tournament = await Tournament.findByIdAndDelete(req.params.id);
     if (!tournament) return res.status(404).json({ message: 'Tournament not found' });
     res.status(204).end();
