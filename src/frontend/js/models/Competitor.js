@@ -1,4 +1,4 @@
-class Team {
+class Competitor {
     constructor({
         _id,
         name,
@@ -12,4 +12,4 @@ class Team {
     }
 }
 
-export default Team;
+export default Competitor;
