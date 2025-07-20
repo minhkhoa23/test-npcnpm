@@ -2,6 +2,6 @@
   "name": "test-npcnpm",
   "version": "1.0.0",
   "scripts": {
-    "test": "node src/backend/tests/utils.test.js"
+    "test": "node src/backend/tests/utils.node-test.cjs"
   }
 }
