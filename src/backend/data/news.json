@@ -6,6 +6,7 @@
     "content": "Hãy sẵn sàng cho giải mùa xuân...",
     "images": ["http://example.com/news/spring1.jpg"],
     "authorId": "640002",
+    "status": "public",
     "publishedAt": "2025-02-25"
   },
   {
@@ -15,6 +16,7 @@
     "content": "Nhiều đội mạnh sẽ tranh tài...",
     "images": ["http://example.com/news/summer1.jpg"],
     "authorId": "640002",
+    "status": "public",
     "publishedAt": "2025-06-10"
   }
 ]
