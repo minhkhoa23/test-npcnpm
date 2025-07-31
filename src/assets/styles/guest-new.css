@@ -263,14 +263,38 @@ body {
 }
 
 .hero-title {
-  font-family: Montserrat, var(--font-family);
+  font-family: var(--heading-font);
   font-size: 48px;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--text-white);
   text-align: center;
   margin-bottom: 40px;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  -webkit-text-stroke: 3px var(--primary-black);
+  text-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(102, 126, 234, 0.3),
+    0 0 60px rgba(102, 126, 234, 0.1);
+  -webkit-text-stroke: 2px var(--primary-black);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #FFFFFF, #E0E0E0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(102, 126, 234, 0.3),
+      0 0 60px rgba(102, 126, 234, 0.1);
+  }
+  100% {
+    text-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(102, 126, 234, 0.5),
+      0 0 60px rgba(102, 126, 234, 0.3);
+  }
 }
 
 .tournament-carousel {
