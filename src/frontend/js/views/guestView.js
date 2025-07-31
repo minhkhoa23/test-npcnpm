@@ -351,26 +351,60 @@ async function loadHighlights() {
   try {
     const highlights = await apiCall('/api/highlights');
     const highlightsList = document.getElementById('highlightsList');
+    const featuredHighlight = document.getElementById('featuredHighlight');
 
     if (highlights.length === 0) {
       highlightsList.innerHTML = '<div class="no-content">No highlights available</div>';
       return;
     }
 
-    highlightsList.innerHTML = highlights.slice(0, 4).map(highlight => `
-      <div class="highlight-card">
-        <h4 class="highlight-title">${highlight.title}</h4>
-        <p class="highlight-description">${highlight.description}</p>
-        <div class="highlight-video">
-          <a href="${highlight.videoUrl}" target="_blank" class="video-link">
-            🎬 Watch Video
-          </a>
-        </div>
-        <div class="highlight-meta">
-          <small class="highlight-date">Created: ${new Date(highlight.createdAt).toLocaleDateString()}</small>
+    // Create highlight list items
+    highlightsList.innerHTML = highlights.map((highlight, index) => `
+      <div class="highlight-item ${index === 0 ? 'active' : ''}" data-video-url="${highlight.videoUrl}" data-index="${index}">
+        <div class="highlight-thumbnail"></div>
+        <div class="highlight-info">
+          <h5 class="highlight-name">${highlight.title}</h5>
+          <p class="highlight-desc">${highlight.description}</p>
         </div>
       </div>
     `).join('');
+
+    // Set featured video (first highlight)
+    if (highlights.length > 0) {
+      featuredHighlight.innerHTML = `
+        <div class="video-frame">
+          <div class="video-content">
+            <h4>${highlights[0].title}</h4>
+            <p>${highlights[0].description}</p>
+            <a href="${highlights[0].videoUrl}" target="_blank" class="watch-btn">Watch on YouTube</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Add click handlers for highlight items
+    document.querySelectorAll('.highlight-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const index = parseInt(this.dataset.index);
+        const highlight = highlights[index];
+
+        // Update active state
+        document.querySelectorAll('.highlight-item').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+
+        // Update featured video
+        featuredHighlight.innerHTML = `
+          <div class="video-frame">
+            <div class="video-content">
+              <h4>${highlight.title}</h4>
+              <p>${highlight.description}</p>
+              <a href="${highlight.videoUrl}" target="_blank" class="watch-btn">Watch on YouTube</a>
+            </div>
+          </div>
+        `;
+      });
+    });
+
   } catch (error) {
     console.error('Error loading highlights:', error);
     document.getElementById('highlightsList').innerHTML = '<div class="error-message">Failed to load highlights</div>';
