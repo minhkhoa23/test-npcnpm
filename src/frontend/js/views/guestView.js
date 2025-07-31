@@ -85,8 +85,22 @@ export async function renderGuestView() {
               </svg>
             </button>
           </div>
-          <div id="newsList" class="news-grid">
-            <div class="loading-placeholder">Loading news...</div>
+          <div class="news-carousel">
+            <button class="news-nav-btn news-prev-btn">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <path d="M38 24H10M10 24L24 38M10 24L24 10" stroke="#F19EDC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="news-container">
+              <div id="newsList" class="news-grid">
+                <div class="loading-placeholder">Loading news...</div>
+              </div>
+            </div>
+            <button class="news-nav-btn news-next-btn">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <path d="M10 24H38M38 24L24 10M38 24L24 38" stroke="#F19EDC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
           </div>
         </div>
       </section>
