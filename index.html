@@ -23,8 +23,8 @@
     const guestController = new GuestController();
     window.guestController = guestController;
 
-    document.addEventListener('DOMContentLoaded', () => {
-      guestController.renderGuestView();
+    document.addEventListener('DOMContentLoaded', async () => {
+      await guestController.renderGuestView();
     });
   </script>
 </body>
