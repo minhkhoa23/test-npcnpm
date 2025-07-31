@@ -256,20 +256,11 @@ export async function renderGuestView() {
   if (guestController) {
     document.getElementById('loginGuestBtn')?.addEventListener('click', () => guestController.navigateToLogin());
     document.getElementById('registerGuestBtn')?.addEventListener('click', () => guestController.navigateToRegister());
-
-    // Gắn sự kiện đổi dark mode
-    document.getElementById('toggleDarkMode')?.addEventListener('click', () => {
-      guestController.toggleDarkMode();
-    });
+    document.getElementById('ctaLoginBtn')?.addEventListener('click', () => guestController.navigateToLogin());
+    document.getElementById('ctaRegisterBtn')?.addEventListener('click', () => guestController.navigateToRegister());
   }
 
-  // Gắn ngôn ngữ
-  document.getElementById('languageSelect')?.addEventListener('change', (e) => {
-    const lang = e.target.value;
-    loadTranslations(lang);
-  });
-
-  loadTranslations('en');
+  loadTranslations('vi'); // Default to Vietnamese
 
   // Áp dụng lại dark mode nếu đang bật
   if (localStorage.getItem('darkMode') === 'true') {
