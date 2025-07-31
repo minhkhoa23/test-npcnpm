@@ -221,6 +221,15 @@ body {
   width: 100%;
 }
 
+.tournament-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .hero-title {
   font-family: var(--heading-font);
   font-size: 48px;
