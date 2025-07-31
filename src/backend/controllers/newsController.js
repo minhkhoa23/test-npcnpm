@@ -1,12 +1,21 @@
 const News = require('../models/News');
 const mongoose = require('mongoose');
+const fallbackData = require('../utils/fallbackData');
 
 exports.list = async (req, res) => {
   try {
+    if (process.env.NODE_ENV === 'development-no-db') {
+      const news = fallbackData.getNews().filter(n => n.status === 'public');
+      return res.json(news);
+    }
+
     const news = await News.find({ status: 'public' }).sort({ publishedAt: -1 });
     res.json(news);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error('Error in news list:', err);
+    // Fallback to file data if database fails
+    const news = fallbackData.getNews().filter(n => n.status === 'public');
+    res.json(news);
   }
 };
 
