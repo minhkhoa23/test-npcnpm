@@ -14,7 +14,7 @@ export async function renderGuestView() {
             <span class="nav-text">Trang chủ</span>
           </div>
           <div class="search-container">
-            <input type="text" id="searchGuestBar" placeholder="Tìm kiếm giải đấu, đội thi đấu..." class="search-input">
+            <input type="text" id="searchGuestBar" placeholder="Tìm kiếm giải đấu..." class="search-input">
             <svg class="search-close" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M12 4L4 12M4 4L12 12" stroke="#1E1E1E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
