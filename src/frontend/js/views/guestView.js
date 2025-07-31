@@ -324,9 +324,14 @@ async function loadTournaments() {
   }
 }
 
+let currentNewsPage = 0;
+const newsPerPage = 3;
+let allNews = [];
+
 async function loadNews() {
   try {
     const news = await apiCall('/api/news');
+    allNews = news;
     const newsList = document.getElementById('newsList');
 
     if (news.length === 0) {
@@ -334,21 +339,74 @@ async function loadNews() {
       return;
     }
 
-    newsList.innerHTML = news.slice(0, 3).map(newsItem => `
-      <div class="news-card-new">
-        <div class="news-image"></div>
-        <div class="news-content-new">
-          <h4 class="news-title-new">${newsItem.title}</h4>
-          <p class="news-excerpt">${newsItem.content.substring(0, 100)}...</p>
-          <div class="news-meta-new">
-            <span class="news-date">${new Date(newsItem.publishedAt).toLocaleDateString()}</span>
-          </div>
-        </div>
-      </div>
-    `).join('');
+    displayNewsPage(0);
+    setupNewsNavigation();
   } catch (error) {
     console.error('Error loading news:', error);
     document.getElementById('newsList').innerHTML = '<div class="error-message">Failed to load news</div>';
+  }
+}
+
+function displayNewsPage(page) {
+  const newsList = document.getElementById('newsList');
+  const startIndex = page * newsPerPage;
+  const endIndex = startIndex + newsPerPage;
+  const newsToShow = allNews.slice(startIndex, endIndex);
+
+  if (newsToShow.length === 0) return;
+
+  newsList.innerHTML = newsToShow.map(newsItem => `
+    <div class="news-card-new">
+      <div class="news-image"></div>
+      <div class="news-content-new">
+        <h4 class="news-title-new">${newsItem.title}</h4>
+        <p class="news-excerpt">${newsItem.content.substring(0, 100)}...</p>
+        <div class="news-meta-new">
+          <span class="news-date">${new Date(newsItem.publishedAt).toLocaleDateString()}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Update button states
+  updateNewsNavigationButtons();
+}
+
+function setupNewsNavigation() {
+  const prevBtn = document.querySelector('.news-prev-btn');
+  const nextBtn = document.querySelector('.news-next-btn');
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      if (currentNewsPage > 0) {
+        currentNewsPage--;
+        displayNewsPage(currentNewsPage);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const maxPage = Math.ceil(allNews.length / newsPerPage) - 1;
+      if (currentNewsPage < maxPage) {
+        currentNewsPage++;
+        displayNewsPage(currentNewsPage);
+      }
+    });
+  }
+}
+
+function updateNewsNavigationButtons() {
+  const prevBtn = document.querySelector('.news-prev-btn');
+  const nextBtn = document.querySelector('.news-next-btn');
+  const maxPage = Math.ceil(allNews.length / newsPerPage) - 1;
+
+  if (prevBtn) {
+    prevBtn.style.opacity = currentNewsPage > 0 ? '1' : '0.5';
+    prevBtn.style.pointerEvents = currentNewsPage > 0 ? 'auto' : 'none';
+  }
+
+  if (nextBtn) {
+    nextBtn.style.opacity = currentNewsPage < maxPage ? '1' : '0.5';
+    nextBtn.style.pointerEvents = currentNewsPage < maxPage ? 'auto' : 'none';
   }
 }
 
