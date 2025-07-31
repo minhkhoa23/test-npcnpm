@@ -875,6 +875,13 @@ body {
   }
 }
 
+@media (max-width: 1200px) {
+  .tournament-slide {
+    flex: 0 0 calc(50% - 10px);
+    min-width: 280px;
+  }
+}
+
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
@@ -899,6 +906,29 @@ body {
 
   .search-input::placeholder {
     font-size: 14px;
+  }
+
+  .tournament-carousel {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .tournament-slide {
+    flex: 0 0 100%;
+    min-width: 250px;
+    max-width: 350px;
+  }
+
+  .carousel-content {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0 5px;
+  }
+
+  .carousel-slider {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 10px;
   }
 
   .news-carousel {
