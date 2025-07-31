@@ -243,12 +243,7 @@ body {
 
 
 
-.tournament-carousel {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+
 
 .carousel-btn {
   background: transparent;
