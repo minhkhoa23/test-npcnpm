@@ -260,16 +260,21 @@ body {
 .carousel-content {
   flex: 1;
   overflow: hidden;
+  padding: 0 10px;
 }
 
 .carousel-slider {
   display: flex;
   gap: 20px;
   transition: transform 0.3s ease;
+  justify-content: center;
+  align-items: center;
 }
 
 .tournament-slide {
-  min-width: 400px;
+  flex: 0 0 calc(33.333% - 14px);
+  max-width: 380px;
+  min-width: 300px;
 }
 
 .tournament-card-hero {
