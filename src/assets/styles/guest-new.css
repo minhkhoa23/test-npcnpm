@@ -103,7 +103,9 @@ body {
 
 .nav-text {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-family: var(--font-family);
 }
 
 .search-container {
