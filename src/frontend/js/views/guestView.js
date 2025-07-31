@@ -355,21 +355,29 @@ function displayNewsPage(page) {
 
   if (newsToShow.length === 0) return;
 
-  newsList.innerHTML = newsToShow.map(newsItem => `
-    <div class="news-card-new">
-      <div class="news-image"></div>
-      <div class="news-content-new">
-        <h4 class="news-title-new">${newsItem.title}</h4>
-        <p class="news-excerpt">${newsItem.content.substring(0, 100)}...</p>
-        <div class="news-meta-new">
-          <span class="news-date">${new Date(newsItem.publishedAt).toLocaleDateString()}</span>
+  // Add fade out effect
+  newsList.style.opacity = '0';
+
+  setTimeout(() => {
+    newsList.innerHTML = newsToShow.map(newsItem => `
+      <div class="news-card-new">
+        <div class="news-image"></div>
+        <div class="news-content-new">
+          <h4 class="news-title-new">${newsItem.title}</h4>
+          <p class="news-excerpt">${newsItem.content.substring(0, 100)}...</p>
+          <div class="news-meta-new">
+            <span class="news-date">${new Date(newsItem.publishedAt).toLocaleDateString()}</span>
+          </div>
         </div>
       </div>
-    </div>
-  `).join('');
+    `).join('');
 
-  // Update button states
-  updateNewsNavigationButtons();
+    // Fade in effect
+    newsList.style.opacity = '1';
+
+    // Update button states
+    updateNewsNavigationButtons();
+  }, 150);
 }
 
 function setupNewsNavigation() {
