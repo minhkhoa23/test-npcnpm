@@ -939,17 +939,23 @@ body {
     padding: 15px 20px;
     gap: 15px;
   }
-  
+
   .header-center {
     gap: 20px;
   }
-  
+
   .header-right {
     gap: 10px;
   }
-  
+
   .search-container {
-    width: 200px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .search-input::placeholder {
+    font-size: 14px;
   }
   
   .hero-title {
