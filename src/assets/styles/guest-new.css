@@ -22,8 +22,8 @@
   --search-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --gaming-glow: 0 0 20px rgba(102, 126, 234, 0.3);
 
-  --font-family: 'Orbitron', 'Rajdhani', 'Inter', -apple-system, Roboto, Helvetica, sans-serif;
-  --heading-font: 'Orbitron', 'Montserrat', sans-serif;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --heading-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --border-radius: 8px;
   --border-radius-large: 16px;
   --border-radius-card: 28px;
