@@ -1033,6 +1033,20 @@ body {
   .search-input::placeholder {
     font-size: 13px;
   }
+
+  .hero-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .tournament-slide {
+    min-width: 280px;
+    max-width: 320px;
+  }
+
+  .tournament-card-hero {
+    height: 280px;
+  }
   
   .hero-title {
     font-size: 24px;
