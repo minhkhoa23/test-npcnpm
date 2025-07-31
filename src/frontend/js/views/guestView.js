@@ -1,6 +1,7 @@
 import { loadTranslations } from '../lang.js';
+import { apiCall } from '../api.js';
 
-export function renderGuestView() {
+export async function renderGuestView() {
   document.body.innerHTML = `
     <header class="guest-header">
       <h1 id="guestTitle">Tournament Manager</h1>
@@ -21,19 +22,29 @@ export function renderGuestView() {
         <h2>Welcome to Tournament Manager</h2>
         <p>Explore exciting Esports tournaments, teams, and highlights. Log in or sign up to join the action!</p>
 
-        <div class="login-section">
-          <h3>Quick Login</h3>
-          <input type="text" id="guestEmail" placeholder="Enter your email">
-          <button id="guestLoginBtn" class="btn">Login</button>
-        </div>
+        <!-- Current Tournaments Section -->
+        <section class="tournaments-section">
+          <h3>🏆 Current Tournaments</h3>
+          <div id="tournamentsList" class="content-grid">
+            <div class="loading-placeholder">Loading tournaments...</div>
+          </div>
+        </section>
 
-        <div class="guest-preview">
-          <h3>Featured Tournaments</h3>
-          <ul>
-            <li>Summer 2025 League - Starts July 1</li>
-            <li>Global Esports Cup - Live Now</li>
-          </ul>
-        </div>
+        <!-- Current News Section -->
+        <section class="news-section">
+          <h3>📰 Latest News</h3>
+          <div id="newsList" class="content-grid">
+            <div class="loading-placeholder">Loading news...</div>
+          </div>
+        </section>
+
+        <!-- Highlights Section -->
+        <section class="highlights-section">
+          <h3>🎬 Recent Highlights</h3>
+          <div id="highlightsList" class="content-grid">
+            <div class="loading-placeholder">Loading highlights...</div>
+          </div>
+        </section>
       </div>
     </main>
   `;
