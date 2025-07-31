@@ -329,13 +329,15 @@ async function loadNews() {
       return;
     }
 
-    newsList.innerHTML = news.slice(0, 6).map(newsItem => `
-      <div class="news-card">
-        <h4 class="news-title">${newsItem.title}</h4>
-        <p class="news-content">${newsItem.content}</p>
-        <div class="news-meta">
-          <small class="news-date">Published: ${new Date(newsItem.publishedAt).toLocaleDateString()}</small>
-          <span class="news-status">${newsItem.status}</span>
+    newsList.innerHTML = news.slice(0, 3).map(newsItem => `
+      <div class="news-card-new">
+        <div class="news-image"></div>
+        <div class="news-content-new">
+          <h4 class="news-title-new">${newsItem.title}</h4>
+          <p class="news-excerpt">${newsItem.content.substring(0, 100)}...</p>
+          <div class="news-meta-new">
+            <span class="news-date">${new Date(newsItem.publishedAt).toLocaleDateString()}</span>
+          </div>
         </div>
       </div>
     `).join('');
