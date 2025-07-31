@@ -287,30 +287,35 @@ export async function renderGuestView() {
 async function loadTournaments() {
   try {
     const tournaments = await apiCall('/api/tournaments');
-    const tournamentsList = document.getElementById('tournamentsList');
+    const tournamentCarousel = document.getElementById('tournamentCarousel');
 
     if (tournaments.length === 0) {
-      tournamentsList.innerHTML = '<div class="no-content">No tournaments available</div>';
+      tournamentCarousel.innerHTML = '<div class="no-content">No tournaments available</div>';
       return;
     }
 
-    tournamentsList.innerHTML = tournaments.map(tournament => `
-      <div class="tournament-card">
-        <h4 class="tournament-title">${tournament.name}</h4>
-        <p class="tournament-description">${tournament.description}</p>
-        <div class="tournament-meta">
-          <span class="tournament-status status-${tournament.status}">${tournament.status}</span>
-          <span class="tournament-format">${tournament.format} format</span>
-        </div>
-        <div class="tournament-dates">
-          <small>Start: ${new Date(tournament.startDate).toLocaleDateString()}</small>
-          <small>End: ${new Date(tournament.endDate).toLocaleDateString()}</small>
-        </div>
+    tournamentCarousel.innerHTML = `
+      <div class="carousel-slider">
+        ${tournaments.map(tournament => `
+          <div class="tournament-slide">
+            <div class="tournament-card-hero">
+              <div class="tournament-image"></div>
+              <div class="tournament-info">
+                <h3 class="tournament-name">${tournament.name}</h3>
+                <p class="tournament-desc">${tournament.description}</p>
+                <div class="tournament-badges">
+                  <span class="status-badge status-${tournament.status}">${tournament.status}</span>
+                  <span class="format-badge">${tournament.format}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `).join('')}
       </div>
-    `).join('');
+    `;
   } catch (error) {
     console.error('Error loading tournaments:', error);
-    document.getElementById('tournamentsList').innerHTML = '<div class="error-message">Failed to load tournaments</div>';
+    document.getElementById('tournamentCarousel').innerHTML = '<div class="error-message">Failed to load tournaments</div>';
   }
 }
 
