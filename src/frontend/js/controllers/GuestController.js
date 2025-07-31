@@ -1,8 +1,8 @@
 import { renderGuestView } from '../views/guestView.js';
 
 export default class GuestController {
-  renderGuestView() {
-    renderGuestView();
+  async renderGuestView() {
+    await renderGuestView();
   }
 
   navigateToLogin() {
