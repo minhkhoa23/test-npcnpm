@@ -16,6 +16,8 @@ app.use(express.static(path.join(__dirname, "../../")));
 // routes
 app.use("/api/tournaments", require("./routes/tournamentRoutes"));
 app.use("/api/matches", require("./routes/matchRoutes"));
+app.use("/api/news", require("./routes/newsRoutes"));
+app.use("/api/highlights", require("./routes/highlightRoutes"));
 
 // socket.io
 const httpServer = http.createServer(app);
