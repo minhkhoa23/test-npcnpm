@@ -1116,6 +1116,29 @@ body {
   .tournament-card-hero {
     height: 280px;
   }
+
+  .cta-content {
+    gap: 30px;
+  }
+
+  .cta-title {
+    font-size: 20px;
+  }
+
+  .cta-description {
+    font-size: 14px;
+  }
+
+  .cta-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+
+  .cta-thumbnails {
+    gap: 10px;
+    max-width: 300px;
+  }
   
   .hero-title {
     font-size: 24px;
