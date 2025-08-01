@@ -6,7 +6,7 @@ export default class GuestController {
   }
 
   navigateToLogin() {
-    window.location.href = 'login.html';
+    window.location.href = 'src/frontend/login.html';
   }
 
   navigateToRegister() {
