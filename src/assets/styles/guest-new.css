@@ -1046,26 +1046,36 @@ body {
     overflow-y: auto;
   }
   
-  .cta-title,
-  .cta-description {
+  .cta-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .cta-left {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .cta-title {
     font-size: 24px;
     text-align: center;
   }
-  
+
+  .cta-description {
+    font-size: 16px;
+    text-align: center;
+  }
+
   .cta-buttons {
     justify-content: center;
     flex-wrap: wrap;
   }
-  
+
   .cta-thumbnails {
-    grid-template-columns: 1fr;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  
-  .thumbnail-item {
-    width: 100%;
-    max-width: 223px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 400px;
     margin: 0 auto;
   }
 }
