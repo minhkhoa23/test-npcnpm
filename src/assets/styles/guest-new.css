@@ -755,20 +755,13 @@ body {
   aspect-ratio: 1.2;
   background: #00BFFF;
   border-radius: var(--border-radius-large);
-  background-image:
-    linear-gradient(135deg, rgba(0, 191, 255, 0.1) 0%, rgba(0, 128, 255, 0.1) 50%, rgba(0, 102, 204, 0.1) 100%),
-    url('https://cdn.builder.io/api/v1/image/assets%2Ffa0711e6f1bd42efa2e1801602ba2ab2%2F6e5d5740b5f640f8ae093f4a90364b31?format=webp&width=800');
-  background-size: 80%, 60%;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-  background-color: #FFFFFF;
+  background-image: linear-gradient(135deg, #00BFFF 0%, #0080FF 50%, #0066CC 100%);
   box-shadow:
     0 4px 15px rgba(0, 191, 255, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transition: transform 0.3s ease;
   position: relative;
   overflow: hidden;
-  border: 2px solid #00BFFF;
 }
 
 .thumbnail-item::before {
