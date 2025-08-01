@@ -879,7 +879,8 @@ body {
 }
 
 .footer-thumbnail {
-  width: 280px;
+  width: 100%;
+  max-width: 280px;
   height: 215px;
   background: #FFFFFF;
   border-radius: var(--border-radius-large);
@@ -887,7 +888,7 @@ body {
   background-size: 70%;
   background-position: center;
   background-repeat: no-repeat;
-  margin-bottom: 15px;
+  margin: 0 auto 15px auto;
   border: 2px solid #00BFFF;
   box-shadow:
     0 4px 15px rgba(0, 191, 255, 0.3),
