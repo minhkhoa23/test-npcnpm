@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Đăng nhập - Tournament Manager</title>
+  <title>Đăng ký tài khoản - Tournament Manager</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +15,7 @@
   <link rel="stylesheet" href="../assets/styles/theme.css" />
   <link rel="stylesheet" href="../assets/styles/components.css" />
   <link rel="stylesheet" href="../assets/styles/layout.css" />
-  <link rel="stylesheet" href="../assets/styles/guest-new.css" />
-  <link rel="stylesheet" href="../assets/styles/login.css" />
+  <link rel="stylesheet" href="../assets/styles/register.css" />
 </head>
 <body>
   <!-- Header Navigation -->
@@ -51,27 +50,27 @@
         </div>
       </div>
       <div class="header-right">
-        <button onclick="window.location.href='./register.html'" class="auth-btn register-btn">
+        <button onclick="window.location.href='./login.html'" class="auth-btn">
           <svg class="auth-icon" width="35" height="35" viewBox="0 0 35 35" fill="none">
-            <path d="M17.5 10.2083C17.5 8.66124 16.8854 7.17751 15.7914 6.08354C14.6975 4.98958 13.2138 4.375 11.6667 4.375H2.91666V26.25H13.125C14.2853 26.25 15.3981 26.7109 16.2186 27.5314C17.0391 28.3519 17.5 29.4647 17.5 30.625M17.5 10.2083V30.625M17.5 10.2083C17.5 8.66124 18.1146 7.17751 19.2085 6.08354C20.3025 4.98958 21.7862 4.375 23.3333 4.375H32.0833V26.25H21.875C20.7147 26.25 19.6019 26.7109 18.7814 27.5314C17.9609 28.3519 17.5 29.4647 17.5 30.625" stroke="#2C2C2C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21.875 4.375H27.7083C28.4819 4.375 29.2237 4.68229 29.7707 5.22927C30.3177 5.77625 30.625 6.51812 30.625 7.29167V27.7083C30.625 28.4819 30.3177 29.2237 29.7707 29.7707C29.2237 30.3177 28.4819 30.625 27.7083 30.625H21.875M14.5833 24.7917L21.875 17.5M21.875 17.5L14.5833 10.2083M21.875 17.5H4.375" stroke="#303030" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          Đăng ký
+          Đăng nhập
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Main Login Content -->
-  <main class="login-main">
-    <div class="login-container">
-      <div class="login-form">
-        <h1 class="login-title">ĐĂNG NHẬP TÀI KHOẢN</h1>
+  <!-- Main Registration Content -->
+  <main class="register-main">
+    <div class="register-container">
+      <div class="register-form">
+        <h1 class="register-title">ĐĂNG KÝ TÀI KHOẢN</h1>
         
-        <form id="loginForm" class="login-form-content">
+        <form id="registerForm" class="register-form-content">
           <div class="form-group">
             <input 
               type="text" 
-              id="loginInput" 
+              id="usernameInput" 
               class="form-input" 
               placeholder="Nhập tên tài khoản hoặc số điện thoại"
               required
@@ -79,36 +78,56 @@
           </div>
           
           <div class="form-group">
-            <div class="password-container">
-              <input 
-                type="password" 
-                id="passwordInput" 
-                class="form-input" 
-                placeholder="Nhập mật khẩu"
-                required
-              >
-              <button type="button" class="password-toggle" id="passwordToggle">
-                <svg class="eye-icon" width="28" height="27" viewBox="0 0 28 27" fill="none">
-                  <g clip-path="url(#clip0_232_912)">
-                    <path d="M20.9301 20.1825C18.9358 21.6484 16.5074 22.4605 14.0001 22.5C5.83342 22.5 1.16675 13.5 1.16675 13.5C2.61795 10.8921 4.63074 8.61368 7.07008 6.8175M11.5501 4.77C12.3531 4.58874 13.1753 4.49813 14.0001 4.5C22.1667 4.5 26.8334 13.5 26.8334 13.5C26.1252 14.7776 25.2806 15.9803 24.3134 17.0887M16.4734 15.885C16.153 16.2166 15.7666 16.4825 15.3373 16.667C14.9079 16.8515 14.4445 16.9507 13.9745 16.9587C13.5046 16.9667 13.0378 16.8833 12.602 16.7136C12.1661 16.5438 11.7703 16.2912 11.4379 15.9707C11.1055 15.6502 10.8435 15.2684 10.6675 14.8482C10.4915 14.4279 10.405 13.9778 10.4133 13.5246C10.4216 13.0715 10.5245 12.6246 10.7158 12.2106C10.9071 11.7966 11.1829 11.424 11.5267 11.115M1.16675 1.125L26.8334 25.875" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_232_912">
-                      <rect width="28" height="27" fill="white"/>
-                    </clipPath>
-                  </defs>
-                </svg>
-              </button>
+            <input 
+              type="password" 
+              id="passwordInput" 
+              class="form-input" 
+              placeholder="Nhập mật khẩu"
+              required
+            >
+          </div>
+          
+          <div class="form-group">
+            <input 
+              type="password" 
+              id="confirmPasswordInput" 
+              class="form-input" 
+              placeholder="Nhập lại mật khẩu"
+              required
+            >
+          </div>
+          
+          <div class="form-group">
+            <input 
+              type="text" 
+              id="displayNameInput" 
+              class="form-input" 
+              placeholder="Nhập tên người dùng của bạn"
+              required
+            >
+          </div>
+          
+          <div class="role-section">
+            <p class="role-question">Bạn muốn tham gia với tư cách nào ?</p>
+            <div class="role-buttons">
+              <label class="role-option">
+                <input type="radio" name="role" value="organizer" required>
+                <span class="role-label">Ban tổ chức giải đấu</span>
+              </label>
+              <label class="role-option">
+                <input type="radio" name="role" value="user" required>
+                <span class="role-label">Người dùng</span>
+              </label>
             </div>
           </div>
           
-          <button type="submit" class="login-btn">
-            ĐĂNG NHẬP
+          <button type="submit" class="register-btn">
+            ĐĂNG KÝ TÀI KHOẢN
           </button>
         </form>
         
-        <p class="register-link">
-          Chưa có tài khoản ? <a href="#" id="registerLink">Đăng ký ngay</a>
+        <p class="login-link">
+          Đã có tài khoản ? <a href="./login.html" id="loginLink">Đăng nhập ngay</a>
         </p>
       </div>
     </div>
@@ -152,7 +171,7 @@
             <svg class="info-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
               <path d="M20 26.6667V20M20 13.3334H20.0167M36.6667 20C36.6667 29.2048 29.2047 36.6667 20 36.6667C10.7952 36.6667 3.33333 29.2048 3.33333 20C3.33333 10.7953 10.7952 3.33337 20 3.33337C29.2047 3.33337 36.6667 10.7953 36.6667 20Z" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>Thông tin ứng dụng</span>
+            <span>Thông tin sử dụng</span>
           </div>
           <div class="info-item">
             <svg class="info-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -169,7 +188,7 @@
         </div>
         <div class="footer-section preview">
           <div class="footer-thumbnail">
-            <img src="https://cdn.builder.io/o/assets%2Ffa0711e6f1bd42efa2e1801602ba2ab2%2F782bfc79106e49d8959f1a263b9f750e?alt=media&token=9f73b116-3dca-4e3e-ab31-ce1c49b9462d&apiKey=fa0711e6f1bd42efa2e1801602ba2ab2" alt="Logo" class="footer-logo" />
+            <div class="footer-logo-placeholder"></div>
           </div>
           <div class="footer-controls">
             <button class="footer-control-btn">
@@ -192,57 +211,36 @@
   </footer>
 
   <!-- Scripts -->
-  <script type="module" src="./js/api.js"></script>
-  <script type="module" src="./js/models/User.js"></script>
-  <script type="module" src="./js/controllers/UserController.js"></script>
-  <script type="module" src="./js/lang.js"></script>
   <script>
-    // Password toggle functionality
-    document.getElementById('passwordToggle').addEventListener('click', function() {
-      const passwordInput = document.getElementById('passwordInput');
-      const eyeIcon = this.querySelector('.eye-icon');
-
-      if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        this.classList.add('show-password');
-        // Change to "eye" icon when showing password
-        eyeIcon.innerHTML = `
-          <g clip-path="url(#clip0_232_912)">
-            <path d="M2 10s3-7 12-7 12 7 12 7-3 7-12 7-12-7-12-7z" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="14" cy="10" r="3" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </g>
-        `;
-      } else {
-        passwordInput.type = 'password';
-        this.classList.remove('show-password');
-        // Change back to "eye-off" icon when hiding password
-        eyeIcon.innerHTML = `
-          <g clip-path="url(#clip0_232_912)">
-            <path d="M20.9301 20.1825C18.9358 21.6484 16.5074 22.4605 14.0001 22.5C5.83342 22.5 1.16675 13.5 1.16675 13.5C2.61795 10.8921 4.63074 8.61368 7.07008 6.8175M11.5501 4.77C12.3531 4.58874 13.1753 4.49813 14.0001 4.5C22.1667 4.5 26.8334 13.5 26.8334 13.5C26.1252 14.7776 25.2806 15.9803 24.3134 17.0887M16.4734 15.885C16.153 16.2166 15.7666 16.4825 15.3373 16.667C14.9079 16.8515 14.4445 16.9507 13.9745 16.9587C13.5046 16.9667 13.0378 16.8833 12.602 16.7136C12.1661 16.5438 11.7703 16.2912 11.4379 15.9707C11.1055 15.6502 10.8435 15.2684 10.6675 14.8482C10.4915 14.4279 10.405 13.9778 10.4133 13.5246C10.4216 13.0715 10.5245 12.6246 10.7158 12.2106C10.9071 11.7966 11.1829 11.424 11.5267 11.115M1.16675 1.125L26.8334 25.875" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </g>
-        `;
-      }
-    });
-
-    // Login form submission
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
+    // Registration form submission
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const loginInput = document.getElementById('loginInput').value;
-      const passwordInput = document.getElementById('passwordInput').value;
       
-      if (loginInput && passwordInput) {
-        // Simulate login process
-        alert('Đăng nh��p thành công!');
-        window.location.href = './dashboard.html';
-      } else {
+      const username = document.getElementById('usernameInput').value;
+      const password = document.getElementById('passwordInput').value;
+      const confirmPassword = document.getElementById('confirmPasswordInput').value;
+      const displayName = document.getElementById('displayNameInput').value;
+      const role = document.querySelector('input[name="role"]:checked')?.value;
+      
+      // Validation
+      if (!username || !password || !confirmPassword || !displayName || !role) {
         alert('Vui lòng nhập đầy đủ thông tin!');
+        return;
       }
-    });
-
-    // Register link
-    document.getElementById('registerLink').addEventListener('click', function(e) {
-      e.preventDefault();
-      window.location.href = './register.html';
+      
+      if (password !== confirmPassword) {
+        alert('Mật khẩu xác nhận không khớp!');
+        return;
+      }
+      
+      if (password.length < 6) {
+        alert('Mật khẩu phải có ít nhất 6 ký tự!');
+        return;
+      }
+      
+      // Simulate registration process
+      alert('Đăng ký thành công!');
+      window.location.href = './login.html';
     });
   </script>
 </body>
