@@ -1,9 +1,22 @@
 const Tournament = require('../models/Tournament');
 const mongoose = require('mongoose');
+const fallbackData = require('../utils/fallbackData');
 
 exports.list = async (req, res) => {
-  const tournaments = await Tournament.find().populate('teams');
-  res.json(tournaments);
+  try {
+    if (process.env.NODE_ENV === 'development-no-db') {
+      const tournaments = fallbackData.getTournaments();
+      return res.json(tournaments);
+    }
+
+    const tournaments = await Tournament.find().populate('teams');
+    res.json(tournaments);
+  } catch (error) {
+    console.error('Error in tournament list:', error);
+    // Fallback to file data if database fails
+    const tournaments = fallbackData.getTournaments();
+    res.json(tournaments);
+  }
 };
 
 exports.create = async (req, res) => {
