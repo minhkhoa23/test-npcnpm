@@ -1028,6 +1028,17 @@ body {
   .footer-content::after {
     display: none;
   }
+
+  .footer-section.contact,
+  .footer-section.info,
+  .footer-section.preview {
+    padding: 0 10px;
+  }
+
+  .info-item {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
 }
 
 @media (max-width: 768px) {
