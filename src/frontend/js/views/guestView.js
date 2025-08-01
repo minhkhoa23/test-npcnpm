@@ -78,7 +78,7 @@ export async function renderGuestView() {
       <section class="news-section">
         <div class="section-container">
           <div class="section-header">
-            <h2 class="section-title">TIN TỨC MỚI NHẤT</h2>
+            <h2 class="section-title" style="color: #fff; text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000, 0px 0px 4px #000; font-weight: 800; font-size: 2.5rem; letter-spacing: 1px;">TIN TỨC MỚI NHẤT</h2>
             <button class="search-btn">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                 <path d="M35 35L27.75 27.75M31.6667 18.3333C31.6667 25.6971 25.6971 31.6667 18.3333 31.6667C10.9695 31.6667 5 25.6971 5 18.3333C5 10.9695 10.9695 5 18.3333 5C25.6971 5 31.6667 10.9695 31.6667 18.3333Z" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -108,7 +108,7 @@ export async function renderGuestView() {
       <!-- Highlights Section -->
       <section class="highlights-section">
         <div class="section-container">
-          <h2 class="section-title highlight-title">HIGHLIGHT NÓNG THỔI</h2>
+          <h2 class="section-title highlight-title" style="color: #fff; text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000, 0px 0px 4px #000; font-weight: 800; font-size: 2.5rem; letter-spacing: 1px;">HIGHLIGHT NÓNG THỔI</h2>
           <div class="highlights-content">
             <div class="highlights-list">
               <div id="highlightsList">
@@ -295,17 +295,52 @@ export async function renderGuestView() {
   await loadHighlights();
 }
 
+// SỬA LẠI: Hàm loadTournaments dùng template card gốc
 async function loadTournaments() {
-  try {
-    const tournaments = await apiCall('/api/tournaments');
-    const tournamentCarousel = document.getElementById('tournamentCarousel');
-
-    if (tournaments.length === 0) {
-      tournamentCarousel.innerHTML = '<div class="no-content">No tournaments available</div>';
-      return;
+  const tournaments = [
+    {
+      _id: "64f000000000000000001001",
+      name: "Summer Cup 2025",
+      format: "round",
+      description: "Giải đấu mùa hè",
+      avatarUrl: "",
+      gameName: "",
+      numberOfPlayers: 0,
+      maxPlayers: 0,
+      startDate: "2025-06-01T00:00:00.000Z",
+      endDate:   "2025-06-15T00:00:00.000Z",
+      status: "upcoming"
+    },
+    {
+      _id: "64f000000000000000001002",
+      name: "Winter Clash",
+      format: "single",
+      description: "Giải đấu mùa đông",
+      avatarUrl: "",
+      gameName: "",
+      numberOfPlayers: 0,
+      maxPlayers: 0,
+      startDate: "2025-12-01T00:00:00.000Z",
+      endDate:   "2025-12-10T00:00:00.000Z",
+      status: "upcoming"
+    },
+    {
+      _id: "64f000000000000000001003",
+      name: "Demo Cup 2025",
+      format: "single",
+      description: "Giải đấu seed mặc định",
+      avatarUrl: "",
+      gameName: "",
+      numberOfPlayers: 0,
+      maxPlayers: 0,
+      startDate: "2025-08-01T00:00:00.000Z",
+      endDate:   "2025-08-10T00:00:00.000Z",
+      status: "upcoming"
     }
-
-    tournamentCarousel.innerHTML = `
+  ];
+  const container = document.getElementById('tournamentCarousel');
+  if (container) {
+    container.innerHTML = `
       <div class="carousel-slider">
         ${tournaments.map(tournament => `
           <div class="tournament-slide">
@@ -324,9 +359,6 @@ async function loadTournaments() {
         `).join('')}
       </div>
     `;
-  } catch (error) {
-    console.error('Error loading tournaments:', error);
-    document.getElementById('tournamentCarousel').innerHTML = '<div class="error-message">Failed to load tournaments</div>';
   }
 }
 
@@ -334,22 +366,44 @@ let currentNewsPage = 0;
 const newsPerPage = 3;
 let allNews = [];
 
+// SỬA LẠI: Hàm loadNews dùng template card gốc
 async function loadNews() {
-  try {
-    const news = await apiCall('/api/news');
-    allNews = news;
-    const newsList = document.getElementById('newsList');
-
-    if (news.length === 0) {
-      newsList.innerHTML = '<div class="no-content">No news available</div>';
-      return;
+  const news = [
+    {
+      _id: "643001",
+      tournamentId: "641001",
+      title: "Spring Cup sắp bắt đầu!",
+      content: "Hãy sẵn sàng cho giải mùa xuân...",
+      images: ["http://example.com/news/spring1.jpg"],
+      authorId: "640002",
+      status: "public",
+      publishedAt: "2025-02-25"
+    },
+    {
+      _id: "643002",
+      tournamentId: "641002",
+      title: "Summer Cup khai mạc ngày 15/6",
+      content: "Nhiều đội mạnh sẽ tranh tài...",
+      images: ["http://example.com/news/summer1.jpg"],
+      authorId: "640002",
+      status: "public",
+      publishedAt: "2025-06-10"
     }
-
-    displayNewsPage(0);
-    setupNewsNavigation();
-  } catch (error) {
-    console.error('Error loading news:', error);
-    document.getElementById('newsList').innerHTML = '<div class="error-message">Failed to load news</div>';
+  ];
+  const container = document.getElementById('newsList');
+  if (container) {
+    container.innerHTML = news.map(n => `
+      <div class="news-card-new">
+        <div class="news-image" style="background-image:url('${n.images[0]}');"></div>
+        <div class="news-content-new">
+          <h4 class="news-title-new">${n.title}</h4>
+          <p class="news-excerpt">${n.content.substring(0, 100)}...</p>
+          <div class="news-meta-new">
+            <span class="news-date">${n.publishedAt}</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
   }
 }
 
@@ -367,7 +421,7 @@ function displayNewsPage(page) {
   setTimeout(() => {
     newsList.innerHTML = newsToShow.map(newsItem => `
       <div class="news-card-new">
-        <div class="news-image"></div>
+        <div class="news-image" style="background-image:url('${newsItem.images[0]}');"></div>
         <div class="news-content-new">
           <h4 class="news-title-new">${newsItem.title}</h4>
           <p class="news-excerpt">${newsItem.content.substring(0, 100)}...</p>
@@ -424,66 +478,43 @@ function updateNewsNavigationButtons() {
   }
 }
 
+// SỬA LẠI: Hàm loadHighlights dùng template card gốc
 async function loadHighlights() {
-  try {
-    const highlights = await apiCall('/api/highlights');
-    const highlightsList = document.getElementById('highlightsList');
-    const featuredHighlight = document.getElementById('featuredHighlight');
-
-    if (highlights.length === 0) {
-      highlightsList.innerHTML = '<div class="no-content">No highlights available</div>';
-      return;
+  const highlights = [
+    {
+      _id: "644001",
+      tournamentId: "641001",
+      matchId: "64m5001",
+      title: "Highlight trận khai mạc",
+      videoUrl: "https://www.youtube.com/watch?v=vid1",
+      description: "Pha kết liễu mãn nhãn",
+      status: "public",
+      createdAt: "2025-03-01T20:00:00Z"
+    },
+    {
+      _id: "644002",
+      tournamentId: "641002",
+      matchId: "645002",
+      title: "Highlight bán kết Summer",
+      videoUrl: "https://www.youtube.com/watch?v=vid2",
+      description: "Pha solo cực căng",
+      status: "public",
+      createdAt: "2025-06-20T18:00:00Z"
     }
-
-    // Create highlight list items
-    highlightsList.innerHTML = highlights.map((highlight, index) => `
-      <div class="highlight-item ${index === 0 ? 'active' : ''}" data-video-url="${highlight.videoUrl}" data-index="${index}">
+  ];
+  const container = document.getElementById('highlightsList');
+  if (container) {
+    container.innerHTML = highlights.map(h => `
+      <div class="highlight-item">
         <div class="highlight-thumbnail"></div>
         <div class="highlight-info">
-          <h5 class="highlight-name">${highlight.title}</h5>
-          <p class="highlight-desc">${highlight.description}</p>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h5 class="highlight-name" style="margin: 0;">${h.title}</h5>
+            <a href="${h.videoUrl}" target="_blank" class="watch-btn">Xem video</a>
+          </div>
+          <p class="highlight-desc">${h.description}</p>
         </div>
       </div>
     `).join('');
-
-    // Set featured video (first highlight)
-    if (highlights.length > 0) {
-      featuredHighlight.innerHTML = `
-        <div class="video-frame">
-          <div class="video-content">
-            <h4>${highlights[0].title}</h4>
-            <p>${highlights[0].description}</p>
-            <a href="${highlights[0].videoUrl}" target="_blank" class="watch-btn">Watch on YouTube</a>
-          </div>
-        </div>
-      `;
-    }
-
-    // Add click handlers for highlight items
-    document.querySelectorAll('.highlight-item').forEach(item => {
-      item.addEventListener('click', function() {
-        const index = parseInt(this.dataset.index);
-        const highlight = highlights[index];
-
-        // Update active state
-        document.querySelectorAll('.highlight-item').forEach(i => i.classList.remove('active'));
-        this.classList.add('active');
-
-        // Update featured video
-        featuredHighlight.innerHTML = `
-          <div class="video-frame">
-            <div class="video-content">
-              <h4>${highlight.title}</h4>
-              <p>${highlight.description}</p>
-              <a href="${highlight.videoUrl}" target="_blank" class="watch-btn">Watch on YouTube</a>
-            </div>
-          </div>
-        `;
-      });
-    });
-
-  } catch (error) {
-    console.error('Error loading highlights:', error);
-    document.getElementById('highlightsList').innerHTML = '<div class="error-message">Failed to load highlights</div>';
   }
 }
