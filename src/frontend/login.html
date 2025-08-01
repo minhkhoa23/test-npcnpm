@@ -201,13 +201,22 @@
     document.getElementById('passwordToggle').addEventListener('click', function() {
       const passwordInput = document.getElementById('passwordInput');
       const eyeIcon = this.querySelector('.eye-icon');
-      
+
       if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
-        eyeIcon.style.opacity = '0.5';
+        this.classList.add('show-password');
+        // Change to "eye" icon when showing password
+        eyeIcon.innerHTML = `
+          <path d="M1 14s4-8 13-8 13 8 13 8-4 8-13 8-13-8-13-8z" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="14" cy="14" r="3" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        `;
       } else {
         passwordInput.type = 'password';
-        eyeIcon.style.opacity = '1';
+        this.classList.remove('show-password');
+        // Change back to "eye-off" icon when hiding password
+        eyeIcon.innerHTML = `
+          <path d="M20.9301 20.1825C18.9358 21.6484 16.5074 22.4605 14.0001 22.5C5.83342 22.5 1.16675 13.5 1.16675 13.5C2.61795 10.8921 4.63074 8.61368 7.07008 6.8175M11.5501 4.77C12.3531 4.58874 13.1753 4.49813 14.0001 4.5C22.1667 4.5 26.8334 13.5 26.8334 13.5C26.1252 14.7776 25.2806 15.9803 24.3134 17.0887M16.4734 15.885C16.153 16.2166 15.7666 16.4825 15.3373 16.667C14.9079 16.8515 14.4445 16.9507 13.9745 16.9587C13.5046 16.9667 13.0378 16.8833 12.602 16.7136C12.1661 16.5438 11.7703 16.2912 11.4379 15.9707C11.1055 15.6502 10.8435 15.2684 10.6675 14.8482C10.4915 14.4279 10.405 13.9778 10.4133 13.5246C10.4216 13.0715 10.5245 12.6246 10.7158 12.2106C10.9071 11.7966 11.1829 11.424 11.5267 11.115M1.16675 1.125L26.8334 25.875" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        `;
       }
     });
 
