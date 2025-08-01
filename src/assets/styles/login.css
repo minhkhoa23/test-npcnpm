@@ -1,12 +1,12 @@
 /* Login Page Styles */
 
 .login-main {
-  min-height: calc(100vh - 140px);
+  min-height: calc(100vh - 500px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  background: var(--text-white);
+  background: #FFFFFF;
 }
 
 .login-container {
