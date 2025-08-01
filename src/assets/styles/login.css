@@ -6,6 +6,16 @@ html, body {
   background-color: #FFFFFF !important;
 }
 
+/* Override any inherited background styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure main container also has white background */
+.main-content, .login-container, .login-form {
+  background: transparent;
+}
+
 .login-main {
   min-height: calc(100vh - 500px);
   display: flex;
