@@ -778,15 +778,21 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+  background: linear-gradient(45deg, transparent 40%, rgba(0, 191, 255, 0.2) 50%, transparent 60%);
   animation: shimmer 3s infinite;
+  border-radius: var(--border-radius-large);
 }
 
 .thumbnail-item:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.02);
   box-shadow:
-    0 8px 25px rgba(0, 191, 255, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    0 8px 25px rgba(0, 191, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-color: #0080FF;
+}
+
+.thumbnail-item:hover::before {
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.3) 50%, transparent 60%);
 }
 
 @keyframes shimmer {
