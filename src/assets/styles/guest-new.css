@@ -816,6 +816,17 @@ body {
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.footer-section.contact {
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer-section.preview {
+  padding: 0 20px;
+  text-align: center;
 }
 
 /* Vertical dividers in footer */
