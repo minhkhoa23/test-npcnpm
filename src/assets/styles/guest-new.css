@@ -818,6 +818,26 @@ body {
   margin-bottom: 20px;
 }
 
+/* Vertical dividers in footer */
+.footer-content::before,
+.footer-content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+.footer-content::before {
+  left: calc(33.33% + 20px);
+}
+
+.footer-content::after {
+  right: calc(280px + 20px);
+}
+
 .social-links {
   display: flex;
   gap: 15px;
