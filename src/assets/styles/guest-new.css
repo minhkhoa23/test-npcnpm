@@ -835,7 +835,7 @@ body {
 }
 
 .footer-content::after {
-  right: calc(280px + 20px);
+  left: calc(66.66% + 20px);
 }
 
 .social-links {
