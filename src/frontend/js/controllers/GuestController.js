@@ -10,8 +10,7 @@ export default class GuestController {
   }
 
   navigateToRegister() {
-    alert('Registration feature coming soon!');
-    window.location.href = 'src/frontend/login.html';
+    window.location.href = 'src/frontend/register.html';
   }
 
   login(email) {
