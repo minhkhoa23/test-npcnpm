@@ -168,9 +168,9 @@
 }
 
 .login-link {
-  color: #FFF;
-  font-family: Montserrat, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 20px;
+  color: #1E1E1E;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
   font-weight: 400;
   line-height: normal;
   margin-top: 25px;
@@ -178,13 +178,14 @@
 }
 
 .login-link a {
-  color: #FFF;
+  color: #1E1E1E;
   text-decoration: underline;
   transition: color 0.3s ease;
+  font-weight: 500;
 }
 
 .login-link a:hover {
-  color: #D9D9D9;
+  color: #000;
 }
 
 /* Responsive Design */
