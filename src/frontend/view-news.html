@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xem chi tiết giải đấu mới nhất</title>
+    <link rel="stylesheet" href="../assets/styles/base.css">
+    <link rel="stylesheet" href="../assets/styles/layout.css">
+    <link rel="stylesheet" href="../assets/styles/components.css">
+    <link rel="stylesheet" href="../assets/styles/tournament-management.css">
+    <link rel="stylesheet" href="../assets/styles/news-management.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="menu-btn">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M5 20H35M5 10H35M5 30H35" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <a href="dashboard.html" class="home-btn">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M15 36.6668V20.0002H25V36.6668M5 15.0002L20 3.3335L35 15.0002V33.3335C35 34.2176 34.6488 35.0654 34.0237 35.6905C33.3986 36.3156 32.5507 36.6668 31.6667 36.6668H8.33333C7.44928 36.6668 6.60143 36.3156 5.97631 35.6905C5.35119 35.0654 5 34.2176 5 33.3335V15.0002Z" stroke="#F5F5F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Trang chủ</span>
+                </a>
+            </div>
+            
+            <div class="header-center">
+                <div class="search-container">
+                    <input type="text" placeholder="Tìm kiếm" class="search-input">
+                    <button class="search-clear">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M12 4L4 12M4 4L12 12" stroke="#1E1E1E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <a href="#" class="header-link">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M15.1507 15.0002C15.5425 13.8863 16.3159 12.947 17.3339 12.3487C18.3519 11.7504 19.5488 11.5317 20.7126 11.7313C21.8764 11.931 22.932 12.536 23.6924 13.4394C24.4529 14.3427 24.8691 15.486 24.8673 16.6668C24.8673 20.0002 19.8673 21.6668 19.8673 21.6668M20.0007 28.3335H20.0173M36.6673 20.0002C36.6673 29.2049 29.2054 36.6668 20.0007 36.6668C10.7959 36.6668 3.33398 29.2049 3.33398 20.0002C3.33398 10.7954 10.7959 3.3335 20.0007 3.3335C29.2054 3.3335 36.6673 10.7954 36.6673 20.0002Z" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Hỗ trợ</span>
+                </a>
+                <a href="#" class="header-link">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M20.0007 26.6668V20.0002M20.0007 13.3335H20.0173M36.6673 20.0002C36.6673 29.2049 29.2054 36.6668 20.0007 36.6668C10.7959 36.6668 3.33398 29.2049 3.33398 20.0002C3.33398 10.7954 10.7959 3.3335 20.0007 3.3335C29.2054 3.3335 36.6673 10.7954 36.6673 20.0002Z" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Thông tin</span>
+                </a>
+                <button class="notification-btn">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <path d="M27.46 42C27.1084 42.6062 26.6037 43.1093 25.9965 43.4591C25.3892 43.8088 24.7008 43.9929 24 43.9929C23.2992 43.9929 22.6108 43.8088 22.0035 43.4591C21.3963 43.1093 20.8916 42.6062 20.54 42M36 16C36 12.8174 34.7357 9.76516 32.4853 7.51472C30.2348 5.26428 27.1826 4 24 4C20.8174 4 17.7652 5.26428 15.5147 7.51472C13.2643 9.76516 12 12.8174 12 16C12 30 6 34 6 34H42C42 34 36 30 36 16Z" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="user-avatar">
+                    <img src="https://api.builder.io/api/v1/image/assets/TEMP/2791d338714d3870b4bb42ac5a5390446faac948?width=80" alt="User Avatar">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-container">
+            <h1 class="page-title">Xem chi tiết giải đấu mới nhất</h1>
+            
+            <div class="news-article">
+                <div class="news-meta">
+                    <h2 class="news-headline">Tiêu đề bài báo</h2>
+                    <div class="news-organizer">
+                        <span class="organizer-label">Đơn vị tổ chức:</span>
+                        <div class="organizer-badge">Tên đơn vị</div>
+                    </div>
+                </div>
+
+                <div class="news-content-section">
+                    <h3 class="content-label">Nội dung:</h3>
+                    <div class="news-content">
+                        <p>Đây là nội dung chi tiết của bài báo về giải đấu mới nhất. Bài viết này cung cấp thông tin đầy đủ về giải đấu, bao gồm thời gian tổ chức, địa điểm, các đội tham gia và nhiều thông tin hữu ích khác.</p>
+                        
+                        <p>Giải đấu này được kỳ vọng sẽ thu hút sự quan tâm của đông đảo người hâm mộ và các đội tuyển hàng đầu. Với format thi đấu mới và hệ thống giải thưởng hấp dẫn, đây hứa hẹn sẽ là một sự kiện thể thao đáng nhớ.</p>
+                        
+                        <p>Các đội tham gia đã được công bố và họ đang tích cực chuẩn bị cho giải đấu. Ban tổ chức cũng đã hoàn thiện mọi khâu chuẩn bị để đảm bảo giải đấu diễn ra suôn sẻ và thành công.</p>
+                        
+                        <p>Người hâm mộ có thể theo dõi thông tin cập nhật về giải đấu thông qua website chính thức và các kênh truyền thông xã hội của ban tổ chức. Vé xem trực tiếp tại sân vận động cũng đã được mở bán với nhiều mức giá phù hợp.</p>
+                        
+                        <p>Chúng tôi hy vọng giải đấu này sẽ mang lại những trải nghiệm tuyệt vời cho tất cả người tham gia và người xem. Hãy cùng chờ đón những trận đấu hấp dẫn và kịch tính trong thời gian tới!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Liên hệ với chúng tôi:</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <svg width="48" height="52" viewBox="0 0 48 52" fill="none">
+                            <path d="M45.7615 14.2081C45.5218 13.1795 45.0336 12.237 44.3462 11.4758C43.6589 10.7147 42.7967 10.1619 41.8468 9.87322C38.376 8.96289 24.4929 8.96289 24.4929 8.96289C24.4929 8.96289 10.6098 8.96289 7.13902 9.95991C6.18909 10.2486 5.3269 10.8014 4.63955 11.5625C3.95219 12.3237 3.46401 13.2662 3.22431 14.2948C2.5891 18.0782 2.27839 21.9162 2.29608 25.7606C2.27343 29.6339 2.58417 33.5012 3.22431 37.313C3.48857 38.3097 3.98769 39.2164 4.67344 39.9453C5.3592 40.6743 6.20841 41.201 7.13902 41.4745C10.6098 42.4715 24.4929 42.4715 24.4929 42.4715C24.4929 42.4715 38.376 42.4715 41.8468 41.4745C42.7967 41.1858 43.6589 40.633 44.3462 39.8719C45.0336 39.1108 45.5218 38.1683 45.7615 37.1396C46.3918 33.3847 46.7025 29.576 46.6897 25.7606C46.7124 21.8872 46.4016 18.02 45.7615 14.2081Z" stroke="#F5F5F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19.9526 32.8481L31.5555 25.7606L19.9526 18.673V32.8481Z" stroke="#F5F5F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="48" height="52" viewBox="0 0 48 52" fill="none">
+                            <path d="M35.6992 15.0465H35.7194M14.5113 5.29297H34.6903C40.2625 5.29297 44.7797 10.145 44.7797 16.1302V37.8046C44.7797 43.7898 40.2625 48.6418 34.6903 48.6418H14.5113C8.93908 48.6418 4.42188 43.7898 4.42188 37.8046V16.1302C4.42188 10.145 8.93908 5.29297 14.5113 5.29297ZM32.6724 25.6019C32.9214 27.4057 32.6345 29.248 31.8526 30.8666C31.0707 32.4853 29.8335 33.7979 28.317 34.6177C26.8005 35.4376 25.082 35.723 23.4058 35.4333C21.7296 35.1436 20.1811 34.2935 18.9806 33.0041C17.7802 31.7146 16.9888 30.0514 16.719 28.251C16.4493 26.4506 16.715 24.6046 17.4783 22.9758C18.2416 21.3469 19.4636 20.018 20.9706 19.1781C22.4775 18.3382 24.1927 18.0301 25.8721 18.2976C27.5851 18.5705 29.171 19.4279 30.3956 20.7432C31.6201 22.0585 32.4183 23.7619 32.6724 25.6019Z" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="48" height="52" viewBox="0 0 48 52" fill="none">
+                            <path d="M36.8179 5.29297H30.7642C28.0883 5.29297 25.522 6.43474 23.6299 8.46711C21.7378 10.4995 20.6748 13.256 20.6748 16.1302V22.6325H14.6211V31.3023H20.6748V48.6418H28.7463V31.3023H34.8L36.8179 22.6325H28.7463V16.1302C28.7463 15.5553 28.9589 15.004 29.3374 14.5976C29.7158 14.1911 30.2291 13.9627 30.7642 13.9627H36.8179V5.29297Z" stroke="#F5F5F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="48" height="52" viewBox="0 0 48 52" fill="none">
+                            <path d="M22.8013 24.1349V15.4651M32.8908 24.1349V15.4651M42.9803 4.62793H6.6582V39.307H16.7477V47.9768L24.8192 39.307H34.9087L42.9803 30.6372V4.62793Z" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="contact-email">xxxxx@gmail.com</p>
+            </div>
+            
+            <div class="footer-section">
+                <div class="footer-links">
+                    <a href="#" class="footer-link">
+                        <svg width="40" height="44" viewBox="0 0 40 44" fill="none">
+                            <path d="M20.8587 29.5085V22.2837M20.8587 15.0589H20.8756M37.6745 22.2837C37.6745 32.2591 30.1458 40.3457 20.8587 40.3457C11.5716 40.3457 4.04297 32.2591 4.04297 22.2837C4.04297 12.3083 11.5716 4.22168 20.8587 4.22168C30.1458 4.22168 37.6745 12.3083 37.6745 22.2837Z" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Thông tin sử dụng</span>
+                    </a>
+                    <a href="#" class="footer-link">
+                        <svg width="40" height="44" viewBox="0 0 40 44" fill="none">
+                            <path d="M20.8587 29.1228V21.898M20.8587 14.6732H20.8756M37.6745 21.898C37.6745 31.8733 30.1458 39.96 20.8587 39.96C11.5716 39.96 4.04297 31.8733 4.04297 21.898C4.04297 11.9226 11.5716 3.83594 20.8587 3.83594C30.1458 3.83594 37.6745 11.9226 37.6745 21.898Z" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Chính sách bảo mật</span>
+                    </a>
+                    <a href="#" class="footer-link">
+                        <svg width="40" height="44" viewBox="0 0 40 44" fill="none">
+                            <path d="M20.8587 29.736V22.5112M20.8587 15.2864H20.8756M37.6745 22.5112C37.6745 32.4866 30.1458 40.5732 20.8587 40.5732C11.5716 40.5732 4.04297 32.4866 4.04297 22.5112C4.04297 12.5359 11.5716 4.44922 20.8587 4.44922C30.1458 4.44922 37.6745 12.5359 37.6745 22.5112Z" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Điều khoản sử dụng</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <div class="footer-actions">
+                    <button class="footer-action-btn">
+                        <svg width="48" height="52" viewBox="0 0 48 52" fill="none">
+                            <path d="M42.5486 46.1526L33.7707 36.7243M22.3697 17.9759V30.9805M16.316 24.4782H28.4233M38.5128 24.4782C38.5128 34.0546 31.2853 41.8177 22.3697 41.8177C13.4541 41.8177 6.22656 34.0546 6.22656 24.4782C6.22656 14.9018 13.4541 7.13867 22.3697 7.13867C31.2853 7.13867 38.5128 14.9018 38.5128 24.4782Z" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="footer-action-btn">
+                        <svg width="48" height="52" viewBox="0 0 48 52" fill="none">
+                            <path d="M42.6404 46.1526L33.8626 36.7243M16.4078 24.4782H28.5152M38.6047 24.4782C38.6047 34.0546 31.3771 41.8177 22.4615 41.8177C13.5459 41.8177 6.31836 34.0546 6.31836 24.4782C6.31836 14.9018 13.5459 7.13867 22.4615 7.13867C31.3771 7.13867 38.6047 14.9018 38.6047 24.4782Z" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="footer-logo">
+                    <img src="https://api.builder.io/api/v1/image/assets/TEMP/92864a045f326afbc2da87efb77a662b28af23e5?width=565" alt="Footer Logo">
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>2025 All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
