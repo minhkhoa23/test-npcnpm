@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách Highlight của bạn</title>
+    <title>highlight giải đấu</title>
     <link rel="stylesheet" href="../assets/styles/base.css">
     <link rel="stylesheet" href="../assets/styles/layout.css">
     <link rel="stylesheet" href="../assets/styles/components.css">
-    <link rel="stylesheet" href="../assets/styles/highlight-management.css">
+    <link rel="stylesheet" href="../assets/styles/view-highlight.css">
     <link rel="stylesheet" href="../assets/styles/shared-footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -63,159 +63,49 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="page-container">
-            <h1 class="page-title">Danh sách Highlight của bạn</h1>
+            <h1 class="page-title">highlight giải đấu</h1>
             
-            <div class="management-actions">
-                <button class="create-btn" onclick="window.location.href='create-highlight.html'">
-                    Khởi tạo highlight mới của bạn
-                </button>
-                <button class="back-btn" onclick="window.location.href='dashboard.html'">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <path d="M38 24H10M10 24L24 38M10 24L24 10" stroke="#F19EDC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Trở về trang chủ quản lý
-                </button>
+            <!-- Video Player Section -->
+            <div class="video-container">
+                <div class="video-player">
+                    <div class="video-placeholder">
+                        <!-- Placeholder for video content -->
+                        <div class="placeholder-shapes">
+                            <div class="shape shape-triangle"></div>
+                            <div class="shape shape-star"></div>
+                            <div class="shape shape-square"></div>
+                        </div>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn play-btn">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M10 6L38 24L10 42V6Z" stroke="#303030" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="control-btn pause-btn">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M20 8H12V40H20V8Z" stroke="#303030" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M36 8H28V40H36V8Z" stroke="#303030" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <div class="highlights-list">
-                <div class="highlight-item" onclick="viewHighlight(1)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/9fee9f9fde03e83fbbcbedb7a213bfd8ffdb3b57?width=120" alt="Highlight Avatar">
-                    </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(1)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
+            <!-- Highlight Information Section -->
+            <div class="highlight-info">
+                <div class="info-section">
+                    <h3 class="info-title">Highlight này thuộc giải đấu:</h3>
+                    <div class="tournament-info">
+                        <input type="text" class="tournament-input" placeholder="Tên giải đấu..." readonly>
                     </div>
                 </div>
-
-                <div class="highlight-item" onclick="viewHighlight(2)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/d1676e9f112f18260a647c8d8be4395044b8263e?width=120" alt="Highlight Avatar">
+                
+                <div class="info-section">
+                    <h3 class="info-title">Thông tin highlight:</h3>
+                    <div class="highlight-details">
+                        <textarea class="highlight-description" placeholder="Mô tả highlight..." readonly></textarea>
                     </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(2)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="highlight-item" onclick="viewHighlight(3)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/6e07a2ff4990da9dcd77ed2d48c8f56e09d628b5?width=120" alt="Highlight Avatar">
-                    </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(3)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="highlight-item" onclick="viewHighlight(4)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/3898faad8b7651a7488bbfc19b759f6574e5cde9?width=120" alt="Highlight Avatar">
-                    </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(4)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="highlight-item" onclick="viewHighlight(5)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/55f08ec67ddca863cfc6ac15202fb58d462a4f05?width=120" alt="Highlight Avatar">
-                    </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(5)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="highlight-item" onclick="viewHighlight(6)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/cee997788db5a1526d727508eed77fdf72bd3e74?width=120" alt="Highlight Avatar">
-                    </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(6)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="highlight-item" onclick="viewHighlight(7)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/1ef7f87a402a15b0cd0780955deb0f4d686a08ee?width=120" alt="Highlight Avatar">
-                    </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(7)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="highlight-item" onclick="viewHighlight(8)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/4be8a0eee78af89b1e7ce270b040c22cde5bc21c?width=120" alt="Highlight Avatar">
-                    </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(8)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="highlight-item" onclick="viewHighlight(9)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/9fee9f9fde03e83fbbcbedb7a213bfd8ffdb3b57?width=120" alt="Highlight Avatar">
-                    </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(9)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="highlight-item" onclick="viewHighlight(10)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/d1676e9f112f18260a647c8d8be4395044b8263e?width=120" alt="Highlight Avatar">
-                    </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(10)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="highlight-item" onclick="viewHighlight(11)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/6e07a2ff4990da9dcd77ed2d48c8f56e09d628b5?width=120" alt="Highlight Avatar">
-                    </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(11)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="highlight-item" onclick="viewHighlight(12)">
-                    <div class="highlight-avatar">
-                        <img src="https://api.builder.io/api/v1/image/assets/TEMP/3898faad8b7651a7488bbfc19b759f6574e5cde9?width=120" alt="Highlight Avatar">
-                    </div>
-                    <div class="highlight-name">Highlight A</div>
-                    <div class="highlight-actions">
-                        <button class="edit-btn" onclick="event.stopPropagation(); editHighlight(12)">chỉnh sửa</button>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteHighlight(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <div class="load-more">
-                    <button class="load-more-btn">
-                        <svg width="75" height="75" viewBox="0 0 75 75" fill="none">
-                            <path d="M37.5 48.125L18.75 29.375L23.125 25L37.5 39.375L51.875 25L56.25 29.375L37.5 48.125Z" fill="#1D1B20"/>
-                        </svg>
-                    </button>
                 </div>
             </div>
         </div>
@@ -299,31 +189,38 @@
     </footer>
 
     <script>
-        // Điều hướng xem highlight - click vào highlight để xem
-        function viewHighlight(highlightId) {
-            // Trong thực tế, bạn có thể truyền ID cụ thể
-            window.location.href = `view-highlight.html?id=${highlightId}`;
-        }
-
-        // Điều hướng chỉnh sửa highlight - click nút chỉnh sửa
-        function editHighlight(highlightId) {
-            // Trong thực tế, bạn có thể truyền ID cụ thể 
-            window.location.href = `edit-highlight.html?id=${highlightId}`;
-        }
-
-        // Xóa highlight
-        function deleteHighlight(button) {
-            const highlightItem = button.closest('.highlight-item');
-            if (confirm('Bạn có chắc chắn muốn xóa highlight này?')) {
-                highlightItem.remove();
-            }
-        }
-
-        // Load more functionality
-        document.querySelector('.load-more-btn').addEventListener('click', function() {
-            // Simulate loading more highlights
-            alert('Đang tải thêm highlights...');
+        // Get highlight ID from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const highlightId = urlParams.get('id');
+        
+        // Video controls
+        const playBtn = document.querySelector('.play-btn');
+        const pauseBtn = document.querySelector('.pause-btn');
+        
+        playBtn.addEventListener('click', function() {
+            console.log('Play highlight:', highlightId);
+            // Implement play functionality
         });
+        
+        pauseBtn.addEventListener('click', function() {
+            console.log('Pause highlight:', highlightId);
+            // Implement pause functionality
+        });
+        
+        // Load highlight data
+        function loadHighlightData(id) {
+            // In a real application, you would fetch data from the server
+            console.log('Loading highlight data for ID:', id);
+            
+            // Sample data loading
+            document.querySelector('.tournament-input').value = 'Giải đấu mẫu';
+            document.querySelector('.highlight-description').value = 'Đây là mô tả cho highlight này...';
+        }
+        
+        // Initialize page
+        if (highlightId) {
+            loadHighlightData(highlightId);
+        }
     </script>
 </body>
 </html>
